@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  outline: none;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(68, 151, 68);
+}
+
+.porco {
+  width: 300px;
+  display: block;
+  margin: 20px auto;
+  filter: drop-shadow(1px 4px 5px gray);
+}
+
+main {
+  background-color: #f4f4f4;
+  width: 375px;
+  border-radius: 20px;
+  margin: 0 auto 40px;
+  padding: 44px 24px 23px;
+}
+
+label {
+  color: #777777;
+  font-weight: 400px;
+  font-size: 14px;
+}
+
+select,
+input {
+  background: #ffffff;
+  border: 1px solid #bbbbbb;
+  border-radius: 4px;
+  height: 48px;
+  width: 100%;
+  margin-bottom: 24px;
+  padding-left: 18px;
+  font-weight: 700px;
+  font-size: 16px;
+  color: #555555;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px gray;
+}
+
+button {
+  background: rgb(68, 151, 68);
+  border-radius: 5px;
+  width: 100%;
+  border: none;
+  height: 48px;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700px;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px gray;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+button:active {
+  opacity: 0.6;
+
+}
+
+section {
+  border: 1px solid rgb(68, 151, 68);
+  border-radius: 20px;
+  margin-top: 36px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.seta {
+  margin: 15px 0;
+  width: 100px;
+  filter: drop-shadow(1px 4px 5px gray);
+}
+
+.currency-img {
+  margin: 15px 0;
+  filter: drop-shadow(1px 4px 5px gray);
+}
+
+.currency-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.currency-value,
+currency-value-to-convert {
+  color: #555555;
+  font-size: 20px;
+  font-weight: 700px;
+}
+
+.currency {
+  color: #777777;
+  font-size: 14px;
+}
