@@ -6,14 +6,20 @@
   box-sizing: border-box;
 }
 
-body {
-  background-color: rgb(68, 151, 68);
+.background-image {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  opacity: 0.5;
 }
 
 .porco {
   width: 300px;
   display: block;
-  margin: 20px auto;
+  margin: auto;
   filter: drop-shadow(1px 4px 5px gray);
 }
 
@@ -21,7 +27,7 @@ main {
   background-color: #f4f4f4;
   width: 375px;
   border-radius: 20px;
-  margin: 0 auto 40px;
+  margin: 0 auto 20px;
   padding: 44px 24px 23px;
 }
 
@@ -30,6 +36,7 @@ label {
   font-weight: 400px;
   font-size: 14px;
 }
+
 
 select,
 input {
@@ -48,7 +55,7 @@ input {
 }
 
 button {
-  background: rgb(68, 151, 68);
+  background: #298300;
   border-radius: 5px;
   width: 100%;
   border: none;
@@ -98,7 +105,7 @@ section {
 }
 
 .currency-value,
-currency-value-to-convert {
+.currency-value-to-convert {
   color: #555555;
   font-size: 20px;
   font-weight: 700px;
@@ -107,4 +114,16 @@ currency-value-to-convert {
 .currency {
   color: #777777;
   font-size: 14px;
+}
+
+@media screen and (max-width: 750px) {
+  main {
+    height: auto;
+    padding: 12px;
+  }
+
+  select,
+  input {
+    margin-bottom: 12px;
+  }
 }

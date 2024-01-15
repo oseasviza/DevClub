@@ -9,21 +9,23 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="desafio.css">
+  <audio class="currency-conversion-audio" src="./assets/caixa-registradora.mp3"></audio>
   <title>Desafio Master</title>
 </head>
 
 <body>
+  <img class="background-image" src="./assets/background.jpeg" alt="Fundo">
   <img class="porco" src="./assets/piggy.gif" alt="piggy-desafio-marter">
 
   <main>
     <label>
       Converter <b>de</b>
-      <select>
-        <option>R$ Real Brasileiro</option>
-        <option>US$ Dólar Americano</option>
-        <option>€ Euro</option>
-        <option>¥ Iene Japonês</option>
-        <option>ر.ق Rial Qatarense</option>
+      <select class="currency-selected-to-convert">
+        <option value="real-to">R$ Real Brasileiro</option>
+        <option value="dolar-to">US$ Dólar Americano</option>
+        <option value="euro-to">€ Euro</option>
+        <option value="iene-to">¥ Iene Japonês</option>
+        <option value="rial-to">ر.ق Rial Qatarense</option>
       </select>
     </label>
 
@@ -45,10 +47,10 @@
 
     <button class="convert-button">Converter</button>
 
-    <section> <!--Aqui-->
+    <section>
       <div class="currency-box">
-        <img src="./assets/Real.png" alt="logo-moeda-a-converter">
-        <p class="currency">Real</p>
+        <img class="convert-img" src="./assets/Real.png" alt="logo-moeda-a-converter">
+        <p class="currency" id="currency-name-conversion">Real</p>
         <p class="currency-value-to-convert">R$ 0,00</p>
       </div>
 
