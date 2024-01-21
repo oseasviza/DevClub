@@ -1,13 +1,13 @@
 const convertButton = document.querySelector('.convert-button');
-const currencySelect = document.querySelector('.currency-select');
+const currencySelect = document.querySelector('.currency-select'); // Segundo select
 const currencySelectedToConvert = document.querySelector(
   '.currency-selected-to-convert'
-);
+); // Primeiro select
 
 function convertValues() {
   const inputCurrencyValue = document.querySelector('.input-currency').value;
   const currencyValueToConvert = document.querySelector(
-    '.currencyValueConverted'
+    '.currency-value-to-convert'
   ); // Valor em Real;
   const currencyValueConverted = document.querySelector('.currency-value'); // Outras moedas;
 
@@ -19,7 +19,7 @@ function convertValues() {
   const dolarToEuro = 0.92;
   const dolarToIene = 144.5;
   const dolarToRial = 3.64;
-  const dolarToReal = 4.78;
+  const dolarToReal = 4.91;
 
   const euroToDolar = 1.1;
   const euroToReal = 5.36;
@@ -33,14 +33,14 @@ function convertValues() {
 
   const rialToDolar = 0.275;
   const rialToReal = 1.35;
-  const rialToEuro = 0.252;
-  const rialToIene = 3.97;
+  const rialToEuro = 0.25;
+  const rialToIene = 39.7;
 
   if (
-    currencySelect.value == 'dolar' &&
-    currencySelectedToConvert.value == 'real-to'
+    currencySelectedToConvert.value == 'real-to' &&
+    currencySelect.value == 'dolar'
   ) {
-    currencyValueToConvert.innerHTML = new Intl.NumberFormat('en-US', {
+    currencyValueConverted.innerHTML = new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
     }).format(inputCurrencyValue / dolarToday);
@@ -67,8 +67,8 @@ function convertValues() {
   }
 
   if (
-    currencySelectedToConvert.value == 'dolar' &&
-    currencySelect.value == 'dolar-to'
+    currencySelectedToConvert.value == 'dolar-to' &&
+    currencySelect.value == 'dolar'
   ) {
     currencyValueConverted.innerHTML = new Intl.NumberFormat('en-US', {
       style: 'currency',
@@ -76,25 +76,15 @@ function convertValues() {
     }).format(inputCurrencyValue);
   }
 
-  //euro-dolar
+  //EURO-DOLAR
   if (
-    currencySelect.value == 'dolar' &&
-    currencySelectedToConvert.value == 'euro-to'
+    currencySelectedToConvert.value == 'euro-to' &&
+    currencySelect.value == 'dolar'
   ) {
-    currencyValueToConvert.innerHTML = new Intl.NumberFormat('en-US', {
+    currencyValueConverted.innerHTML = new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
     }).format(inputCurrencyValue / dolarToday);
-  }
-
-  if (
-    currencySelectedToConvert.value == 'dolar-to' &&
-    currencySelect.value == 'euro'
-  ) {
-    currencyValueConverted.innerHTML = new Intl.NumberFormat('de-DE', {
-      style: 'currency',
-      currency: 'EUR',
-    }).format(inputCurrencyValue * dolarToday);
   }
 
   if (
@@ -107,12 +97,22 @@ function convertValues() {
     }).format(inputCurrencyValue);
   }
 
-  //iene-dolar
   if (
-    currencySelect.value == 'dolar' &&
-    currencySelectedToConvert.value == 'iene-to'
+    currencySelectedToConvert.value == 'dolar-to' &&
+    currencySelect.value == 'euro'
   ) {
-    currencyValueToConvert.innerHTML = new Intl.NumberFormat('en-US', {
+    currencyValueConverted.innerHTML = new Intl.NumberFormat('de-DE', {
+      style: 'currency',
+      currency: 'EUR',
+    }).format(inputCurrencyValue * dolarToday);
+  }
+
+  //IENE-DOLAR
+  if (
+    currencySelectedToConvert.value == 'iene-to' &&
+    currencySelect.value == 'dolar'
+  ) {
+    currencyValueConverted.innerHTML = new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
     }).format(inputCurrencyValue / dolarToday);
@@ -120,11 +120,11 @@ function convertValues() {
 
   if (
     currencySelectedToConvert.value == 'dolar-to' &&
-    currencySelect.value == 'euro'
+    currencySelect.value == 'iene'
   ) {
     currencyValueConverted.innerHTML = new Intl.NumberFormat('ja-JP', {
       style: 'currency',
-      currency: 'JYP',
+      currency: 'JPY',
     }).format(inputCurrencyValue * ieneToday);
   }
 
@@ -134,16 +134,16 @@ function convertValues() {
   ) {
     currencyValueConverted.innerHTML = new Intl.NumberFormat('ja-JP', {
       style: 'currency',
-      currency: 'JYP',
+      currency: 'JPY',
     }).format(inputCurrencyValue);
   }
 
-  //rial-dolar
+  //RIAL-DOLAR
   if (
-    currencySelect.value == 'dolar' &&
-    currencySelectedToConvert.value == 'rial-to'
+    currencySelectedToConvert.value == 'rial-to' &&
+    currencySelect.value == 'dolar'
   ) {
-    currencyValueToConvert.innerHTML = new Intl.NumberFormat('en-US', {
+    currencyValueConverted.innerHTML = new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
     }).format(inputCurrencyValue / dolarToday);
@@ -169,12 +169,12 @@ function convertValues() {
     }).format(inputCurrencyValue);
   }
 
-  //Real-Euro
+  //REAL-EURO
   if (
-    currencySelect.value == 'euro' &&
-    currencySelectedToConvert.value == 'real-to'
+    currencySelectedToConvert.value == 'real-to' &&
+    currencySelect.value == 'euro'
   ) {
-    currencyValueToConvert.innerHTML = new Intl.NumberFormat('de-DE', {
+    currencyValueConverted.innerHTML = new Intl.NumberFormat('de-DE', {
       style: 'currency',
       currency: 'EUR',
     }).format(inputCurrencyValue / euroToday);
@@ -190,14 +190,14 @@ function convertValues() {
     }).format(inputCurrencyValue * euroToday);
   }
 
-  //Real-Iene
+  //REAL-IENE
   if (
-    currencySelect.value == 'iene' &&
-    currencySelectedToConvert.value == 'real-to'
+    currencySelectedToConvert.value == 'real-to' &&
+    currencySelect.value == 'iene'
   ) {
-    currencyValueToConvert.innerHTML = new Intl.NumberFormat('ja-JP', {
+    currencyValueConverted.innerHTML = new Intl.NumberFormat('ja-JP', {
       style: 'currency',
-      currency: 'JYP',
+      currency: 'JPY',
     }).format(inputCurrencyValue / ieneToday);
   }
 
@@ -211,12 +211,12 @@ function convertValues() {
     }).format(inputCurrencyValue * ieneToday);
   }
 
-  //Real-Rial
+  //REAL-RIAL
   if (
-    currencySelect.value == 'rial' &&
-    currencySelectedToConvert.value == 'real-to'
+    currencySelectedToConvert.value == 'real-to' &&
+    currencySelect.value == 'rial'
   ) {
-    currencyValueToConvert.innerHTML = new Intl.NumberFormat('ar-QR', {
+    currencyValueConverted.innerHTML = new Intl.NumberFormat('ar-QR', {
       style: 'currency',
       currency: 'QAR',
     }).format(inputCurrencyValue / rialToday);
@@ -232,95 +232,109 @@ function convertValues() {
     }).format(inputCurrencyValue * rialToday);
   }
 
-  //????
-  if (currencySelectedToConvert.value == 'real-to') {
+  //??????
+  /* if (currencySelectedToConvert.value == 'real-to') {
     currencyValueToConvert.innerHTML = new Intl.NumberFormat('pt-BR', {
       style: 'currency',
       currency: 'BRL',
     }).format(inputCurrencyValue);
-  }
+  }*/
 
-  if (currencySelectedToConvert.value == 'dolar-to') {
+  /*  if (currencySelectedToConvert.value == 'dolar-to') {
     currencyValueConverted.innerHTML = new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
     }).format(inputCurrencyValue);
-  }
+  }*/
 
-  if (currencySelectedToConvert.value == 'euro-to') {
+  /*  if (currencySelectedToConvert.value == 'euro-to') {
     currencyValueConverted.innerHTML = new Intl.NumberFormat('de-DE', {
       style: 'currency',
       currency: 'EUR',
     }).format(inputCurrencyValue);
-  }
+  }*/
 
-  if (currencySelectedToConvert.value == 'iene-to') {
+  /* if (currencySelectedToConvert.value == 'iene-to') {
     currencyValueConverted.innerHTML = new Intl.NumberFormat('ja-JP', {
       style: 'currency',
       currency: 'JPY',
     }).format(inputCurrencyValue);
-  }
+  }*/
 
-  if (currencySelectedToConvert.value == 'rial-to') {
+  /*  if (currencySelectedToConvert.value == 'rial-to') {
     currencyValueConverted.innerHTML = new Intl.NumberFormat('ar-QR', {
       style: 'currency',
       currency: 'QAR',
     }).format(inputCurrencyValue);
-  }
-  //???
+  }*/
 
   //CONVERSÃO A PARTIR DO REAL
-  if (currencySelect.value == 'real' && currencySelect.value == 'real') {
+  /* if (
+    currencySelectedToConvert.value == 'real-to' &&
+    currencySelect.value == 'real'
+  ) {
     currencyValueToConvert.innerHTML = new Intl.NumberFormat('pt-BR', {
       style: 'currency',
       currency: 'BRL',
     }).format(inputCurrencyValue);
-  }
+  }*/
 
-  if (currencySelect.value == 'real' && currencySelect.value == 'dolar') {
+  /* if (
+    currencySelectedToConvert.value == 'real-to' &&
+    currencySelect.value == 'dolar'
+  ) {
     //Se o select estiver selecionado o valor de dolar, entre aqui
     currencyValueConverted.innerHTML = new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
     }).format(inputCurrencyValue / dolarToday);
-  }
+  }*/
 
-  if (currencySelect.value == 'real' && currencySelect.value == 'euro') {
+  /* if (
+    currencySelectedToConvert.value == 'real-to' &&
+    currencySelect.value == 'euro'
+  ) {
     //Se o select estiver selecionado o valor de euro, entre aqui
     currencyValueConverted.innerHTML = new Intl.NumberFormat('de-DE', {
       style: 'currency',
       currency: 'EUR',
     }).format(inputCurrencyValue / euroToday);
-  }
+  }*/
 
-  if (currencySelect.value == 'real' && currencySelect.value == 'iene') {
+  /* if (
+    currencySelectedToConvert.value == 'real-to' &&
+    currencySelect.value == 'iene'
+  ) {
     //Se o select estiver selecionado o valor de iene, entre aqui
     currencyValueConverted.innerHTML = new Intl.NumberFormat('ja-JP', {
       style: 'currency',
       currency: 'JPY',
     }).format(inputCurrencyValue / ieneToday);
-  }
+  }*/
 
-  if (currencySelect.value == 'real' && currencySelect.value == 'rial') {
+  /*if (
+    currencySelectedToConvert.value == 'real-to' &&
+    currencySelect.value == 'rial'
+  ) {
     //Se o select estiver selecionado o valor de rial, entre aqui
     currencyValueConverted.innerHTML = new Intl.NumberFormat('ar-QR', {
       style: 'currency',
       currency: 'QAR',
     }).format(inputCurrencyValue / rialToday);
-  }
+  }*/
 
   //CONVERSÃO A PARTIR DO DOLAR AMERICANO
-  if (
+  /*if (
     currencySelectedToConvert.value == 'dolar-to' &&
     currencySelect.value == 'dolar'
   ) {
-    currencyValueToConvert.innerHTML = new Intl.NumberFormat('en-US', {
+    currencyValueConverted.innerHTML = new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
     }).format(inputCurrencyValue);
-  }
+  }*/
 
-  if (
+  /*  if (
     currencySelectedToConvert.value == 'dolar-to' &&
     currencySelect.value == 'real'
   ) {
@@ -328,19 +342,19 @@ function convertValues() {
       style: 'currency',
       currency: 'BRL',
     }).format(inputCurrencyValue * dolarToday);
-  }
+  }*/
 
-  if (
+  /* if (
     currencySelectedToConvert.value == 'dolar-to' &&
     currencySelect.value == 'euro'
   ) {
-    currencyValueToConvert.innerHTML = new Intl.NumberFormat('de-DE', {
+    currencyValueConverted.innerHTML = new Intl.NumberFormat('de-DE', {
       style: 'currency',
       currency: 'EUR',
-    }).format(inputCurrencyValue * dolarToEuro);
-  }
+    }).format(inputCurrencyValue * euroToday);
+  }*/
 
-  if (
+  /*  if (
     currencySelectedToConvert.value == 'dolar-to' &&
     currencySelect.value == 'iene'
   ) {
@@ -348,9 +362,9 @@ function convertValues() {
       style: 'currency',
       currency: 'JPY',
     }).format(inputCurrencyValue * dolarToIene);
-  }
+  }*/
 
-  if (
+  /*  if (
     currencySelectedToConvert.value == 'dolar-to' &&
     currencySelect.value == 'rial'
   ) {
@@ -358,20 +372,20 @@ function convertValues() {
       style: 'currency',
       currency: 'QAR',
     }).format(inputCurrencyValue * dolarToRial);
-  }
+  }*/
 
   //CONVERSÃO A PARTIR DO EURO
-  if (
+  /* if (
     currencySelectedToConvert.value == 'euro-to' &&
     currencySelect.value == 'dolar'
   ) {
     currencyValueConverted.innerHTML = new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
-    }).format(inputCurrencyValue * euroToDolar);
-  }
+    }).format(inputCurrencyValue / dolarToday);
+  }*/
 
-  if (
+  /*  if (
     currencySelectedToConvert.value == 'euro-to' &&
     currencySelect.value == 'real'
   ) {
@@ -379,9 +393,9 @@ function convertValues() {
       style: 'currency',
       currency: 'BRL',
     }).format(inputCurrencyValue * euroToday);
-  }
+  }*/
 
-  if (
+  /*  if (
     currencySelectedToConvert.value == 'euro-to' &&
     currencySelect.value == 'euro'
   ) {
@@ -389,40 +403,40 @@ function convertValues() {
       style: 'currency',
       currency: 'EUR',
     }).format(inputCurrencyValue);
-  }
+  }*/
 
   if (
     currencySelectedToConvert.value == 'euro-to' &&
     currencySelect.value == 'iene'
   ) {
-    currencyValueToConvert.innerHTML = new Intl.NumberFormat('ja-JP', {
+    currencyValueConverted.innerHTML = new Intl.NumberFormat('ja-JP', {
       style: 'currency',
       currency: 'JPY',
-    }).format(inputCurrencyValue * euroToIene);
+    }).format(inputCurrencyValue * ieneToday);
   }
 
   if (
     currencySelectedToConvert.value == 'euro-to' &&
     currencySelect.value == 'rial'
   ) {
-    currencyValueToConvert.innerHTML = new Intl.NumberFormat('ar-QR', {
+    currencyValueConverted.innerHTML = new Intl.NumberFormat('ar-QR', {
       style: 'currency',
       currency: 'QAR',
-    }).format(inputCurrencyValue * euroToRial);
+    }).format(inputCurrencyValue * rialToday);
   }
 
   //CONVERSÃO A PARTIR DO IENE
-  if (
+  /*  if (
     currencySelectedToConvert.value == 'iene-to' &&
     currencySelect.value == 'dolar'
   ) {
     currencyValueConverted.innerHTML = new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
-    }).format(inputCurrencyValue * ieneToDolar);
-  }
+    }).format(inputCurrencyValue * dolarToday);
+  }*/
 
-  if (
+  /* if (
     currencySelectedToConvert.value == 'iene-to' &&
     currencySelect.value == 'real'
   ) {
@@ -430,7 +444,7 @@ function convertValues() {
       style: 'currency',
       currency: 'BRL',
     }).format(inputCurrencyValue * ieneToday);
-  }
+  }*/
 
   if (
     currencySelectedToConvert.value == 'iene-to' &&
@@ -439,10 +453,10 @@ function convertValues() {
     currencyValueConverted.innerHTML = new Intl.NumberFormat('de-DE', {
       style: 'currency',
       currency: 'EUR',
-    }).format(inputCurrencyValue * ieneToEuro);
+    }).format(inputCurrencyValue / euroToday);
   }
 
-  if (
+  /*  if (
     currencySelectedToConvert.value == 'iene-to' &&
     currencySelect.value == 'iene'
   ) {
@@ -450,20 +464,20 @@ function convertValues() {
       style: 'currency',
       currency: 'JPY',
     }).format(inputCurrencyValue);
-  }
+  }*/
 
   if (
     currencySelectedToConvert.value == 'iene-to' &&
     currencySelect.value == 'rial'
   ) {
-    currencyValueToConvert.innerHTML = new Intl.NumberFormat('ar-QR', {
+    currencyValueConverted.innerHTML = new Intl.NumberFormat('ar-QR', {
       style: 'currency',
       currency: 'QAR',
-    }).format(inputCurrencyValue * ieneToRial);
+    }).format(inputCurrencyValue / rialToday);
   }
 
   //CONVERSÃO A PARTIR DO RIAL
-  if (
+  /*  if (
     currencySelectedToConvert.value == 'rial-to' &&
     currencySelect.value == 'dolar'
   ) {
@@ -471,9 +485,9 @@ function convertValues() {
       style: 'currency',
       currency: 'USD',
     }).format(inputCurrencyValue * rialToDolar);
-  }
+  }*/
 
-  if (
+  /*  if (
     currencySelectedToConvert.value == 'rial-to' &&
     currencySelect.value == 'real'
   ) {
@@ -481,7 +495,7 @@ function convertValues() {
       style: 'currency',
       currency: 'BRL',
     }).format(inputCurrencyValue * rialToday);
-  }
+  }*/
 
   if (
     currencySelectedToConvert.value == 'rial-to' &&
@@ -490,7 +504,7 @@ function convertValues() {
     currencyValueConverted.innerHTML = new Intl.NumberFormat('de-DE', {
       style: 'currency',
       currency: 'EUR',
-    }).format(inputCurrencyValue * rialToEuro);
+    }).format(inputCurrencyValue / euroToday);
   }
 
   if (
@@ -500,10 +514,10 @@ function convertValues() {
     currencyValueToConvert.innerHTML = new Intl.NumberFormat('ja-JP', {
       style: 'currency',
       currency: 'JPY',
-    }).format(inputCurrencyValue * rialToIene);
+    }).format(inputCurrencyValue * ieneToday);
   }
 
-  if (
+  /*  if (
     currencySelectedToConvert.value == 'rial-to' &&
     currencySelect.value == 'rial'
   ) {
@@ -511,7 +525,7 @@ function convertValues() {
       style: 'currency',
       currency: 'QAR',
     }).format(inputCurrencyValue);
-  }
+  }*/
 
   function formatCurrency() {
     switch (currencySelectedToConvert.value) {
@@ -526,6 +540,27 @@ function convertValues() {
         currencyValueToConvert.innerHTML = new Intl.NumberFormat('pt-BR', {
           style: 'currency',
           currency: 'BRL',
+        }).format(inputCurrencyValue);
+        break;
+
+      case 'euro-to':
+        currencyValueToConvert.innerHTML = new Intl.NumberFormat('de-DE', {
+          style: 'currency',
+          currency: 'EUR',
+        }).format(inputCurrencyValue);
+        break;
+
+      case 'iene-to':
+        currencyValueToConvert.innerHTML = new Intl.NumberFormat('ja-JP', {
+          style: 'currency',
+          currency: 'JPY',
+        }).format(inputCurrencyValue);
+        break;
+
+      case 'rial-to':
+        currencyValueToConvert.innerHTML = new Intl.NumberFormat('ar-QR', {
+          style: 'currency',
+          currency: 'QAR',
         }).format(inputCurrencyValue);
         break;
 
